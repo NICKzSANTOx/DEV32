@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(172, 132, 173);
+}
+
+/* AJUSTE E ORGANIZAÇÃO DOS CONTEÚDOS */
+.topo{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.menus{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
