@@ -25,19 +25,19 @@
             <div class='menus'>
                 <!-- OS CARDS DE MENU -->
                 <div class="menu1">
-                    <a href="usuario_cadastra.php">CADASTRA USUARIO</a>
+                    <a href="usuario_cadastra.php"><img src ='icons/add9.png' width="200" height="200"></a>
                 </div>
 
                 <div class="menu2">
-                    <a href="usuario_lista.php">LISTA USUARIO</a>
+                    <a href="usuario_lista.php"><img src ='icons/th2.png' width="200" height="200"></a>
                 </div>
 
                 <div class="menu3">
-                    <a href="funcionario_cadastra.php">CADASTRA FUNCIONARIO</a>
+                    <a href="funcionario_cadastra.php"><img src ='icons/business.png' width="200" height="200"></a>
                 </div>
 
                 <div class="menu4">
-                    <a href="funcionario_lista.php">LISTA FUNCIONARIO</a>
+                    <a href="funcionario_lista.php"><img src ='icons/group1.png' width="200" height="200"></a>
                 </div>
             </div>
     </div>
