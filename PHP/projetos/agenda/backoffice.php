@@ -5,23 +5,23 @@ include("utils/conectadb.php");
 // INICIA VARIAVEIS DE SESSÃO
 session_start();
 
-$idfuncionario = $_SESSION['idfuncionario'];
+// MECANISMO DE SEGURANÇA ANTI VARIAVEL DE SESSÃO VAZIA
+if(isset($_SESSION['idfuncionario'])){
+    // PREENCHE IDFUNCIONARIO COM VARIAVEL DE SESSÃO
+    $idfuncionario = $_SESSION['idfuncionario'];
+// QUERY PARA BUSCAR NOME DO FUN
+    $sql = "SELECT FUN_NOME FROM funcionarios WHERE FUN_ID = $idfuncionario";
 
-$sql = "SELECT FUN_NOME FROM funcionarios WHERE FUN_ID = $idfuncionario";
+    $enviaquery = mysqli_query($link, $sql);
 
-$enviaquery = mysqli_query($link, $sql);
+    $nomeusuario = mysqli_fetch_array($enviaquery) [0];
+}
+else{
+    echo"<script>window.alert('NÃO LOGADO MEU BOM');</script>";
+    echo"<script>window.location.href='login.php';</script>";
 
-$nomeusuario = mysqli_fetch_array($enviaquery) [0];
-
-
-
-
+}
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -54,6 +54,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/global.css">
+    <link href="https://fonts.cdnfonts.com/css/master-lemon" rel="stylesheet">
     <title>LOGIN</title>
 </head>
 <body>
@@ -61,11 +62,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <div class="formulario">
             <form class='login' action="login.php" method="post">
                 <label>LOGIN</label>
-                <br>
                 <input type='text' name='txtlogin' placeholder='Digite o seu Login'>
                 <br>
                 <label>SENHA</label>
-                <br>
                 <input type='password' name='txtsenha' placeholder='Senha aqui'>
 
                 <br>

@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(172, 132, 173);
+    background-color:  #a35031;
 }
 
 /* AJUSTE E ORGANIZAÇÃO DOS CONTEÚDOS */
@@ -7,7 +7,7 @@ body{
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    background-color: rgba(64, 1, 123, 0.831);
+    background-color: #ff7f50;
     border-radius: 30px;
     height: 75px;
 
@@ -26,7 +26,7 @@ body{
     border-radius: 100%;
     width: 50px;
     height:50px;
-    border: 2px solid rgb(38, 1, 131);
+    border: 2px solid #ff7f50;
 }
 
 
@@ -41,7 +41,7 @@ body{
     height: 300px;
     display: flex;
     justify-content: center;
-    background-color: rgba(75, 11, 131, 0.567);
+    background-color: #3e5c76;
     margin: 30px;
     border-radius: 20px;
     flex-flow: column;
