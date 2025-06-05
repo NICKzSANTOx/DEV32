@@ -1,3 +1,28 @@
+<?php
+// CONEXÃO COM O BANCO
+include("utils/conectadb.php");
+
+// INICIA VARIAVEIS DE SESSÃO
+session_start();
+
+$idfuncionario = $_SESSION['idfuncionario'];
+
+$sql = "SELECT FUN_NOME FROM funcionarios WHERE FUN_ID = $idfuncionario";
+
+$enviaquery = mysqli_query($link, $sql);
+
+$nomeusuario = mysqli_fetch_array($enviaquery) [0];
+
+
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +37,7 @@
         <div class="topo">
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
-            <h1>BEM VINDO </h1>
+            <h1>BEM VINDO <?php echo strtoupper($nomeusuario)?> </h1>
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
@@ -34,6 +59,7 @@
 
                 <div class="menu3">
                     <a href="funcionario_cadastra.php"><img src ='icons/business.png' width="200" height="200"></a>
+
                 </div>
 
                 <div class="menu4">

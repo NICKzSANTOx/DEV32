@@ -49,8 +49,8 @@ body{
 
 
 .menus a{
-    width: 300px;
     height: 300px;
+    width: 300px; 
 }
 
 .menu1 a, .menu2 a, .menu3 a, .menu4 a, .menu5 a, .menu6 a{
