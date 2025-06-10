@@ -5,7 +5,7 @@ body{
 .global{
     display: flex;
     flex-flow: column;
-    background-color: #f5f5dc;
+    background-color: #EEC1D3	;
     width: 300px;
     height: 400px;
     border-radius: 20px;
@@ -21,22 +21,34 @@ body{
 }
 
 .login label{
-    color: #ff7f50;
+    color: #5A3E3E	;
     font-size: 30px;
-    font-family: 'Master Lemon', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .login input[type='text'], input[type='password']{
     height: 40px;
     border-radius: 20px;
-    border: none;
+    border: solid 2px #B17871	;
+    background-color: #FFF	;
 }
 
 .login input[type='submit']{
-    background-color: rgb(196, 4, 129);
+    background-color: #D08A98	;
     border-radius: 20px;
-    font-family: 'Master Lemon', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color: aliceblue;
     border: none;
     height: 50px;
+}
+
+.login input[type='submit']:hover {
+    background-color: #B17871;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(28, 29, 30);
+    border: none;
+    height: 50px;
+    
+    cursor: pointer; /* SUGESTÃO DE PONTEIRO GUILHERME (PONTEIRO MÃOZINHA) */
 }
