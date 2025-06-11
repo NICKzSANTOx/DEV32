@@ -41,9 +41,7 @@ else{
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
-                <form action='logout.php'>
-                    <input type="submit" value='SAIR'>
-                </form>
+                <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
             </div>
         </div>
 

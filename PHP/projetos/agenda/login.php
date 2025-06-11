@@ -61,9 +61,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <div class="global">
         <div class="formulario">
             <form class='login' action="login.php" method="post">
-                <label>nome do funcionario</label>
-                <input type='text' name='txtlogin' placeholder='Digite o seu Login'>
-                <br>
+               
                 <label>LOGIN</label>
                 <input type='text' name='txtlogin' placeholder='Digite o seu Login'>
                 <br>

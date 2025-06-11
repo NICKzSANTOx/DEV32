@@ -76,8 +76,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </head>
 <body>
     <div class="global">
+        
         <div class="formulario">
+<!-- FIRULAS Y FIRULAS -->
+ 
+            <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
+            
             <form class='login' action="funcionario_cadastra.php" method="post">
+            
                 <label>NOME DO FUNCIONÁRIO</label>
                 <input type='text' name='txtnome' placeholder='Digite o nome completo' required>
                 <br>
@@ -90,7 +96,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <label>CONTATO</label>
                 <input type='number' name='txtcontato' placeholder='Digite o telefone' required>
                 <br>
-   
+                <br>
+                <br>
+                <br>
+    
                 <!-- AGORA CALASTRAMOS O USUARIO NO SISTEMA -->
                 <label>DIGITE LOGIN</label>
                 <input type='text' name='txtusuario' placeholder='Digite o login para cadastrar'>
@@ -98,12 +107,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <label>SENHA</label>
                 <input type='password' name='txtsenha' placeholder='Senha aqui'>
                 <br>
-
-
-                <input type="radio" name="ativo" id="ativo" value="1" checked><label>ATIVO</label>
-                <br>
-                <input type="radio" name="ativo" id="inativo" value="0"><label>INATIVO</label>
-
+          
+                <label>INICIAR USUARIO COMO:</label>
+                <div class='rbativo'>
+                    
+                    <input type="radio" name="ativo" id="ativo" value="1" checked><label>ATIVO</label>
+                    <br>
+                    <input type="radio" name="ativo" id="inativo" value="0"><label>INATIVO</label>
+                </div>
 
                 <br>
                 <input type='submit' value='CADASTRAR'>

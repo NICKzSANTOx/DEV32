@@ -7,10 +7,15 @@ body{
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    background-color: #ff7f50;
+    background-color: #B17871;
     border-radius: 30px;
     height: 75px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #3c2118;
+}
 
+.topo h1{
+    margin-left: 20px;
 }
 
 .logout{
@@ -20,13 +25,14 @@ body{
     margin-top: 20px;
     display: flex;
     align-self: center;
+    
 }
 /* PERSONALIZANDO APENAS O INPUT DO BOTÃO LOGOUT. ARREDONDADO */
 .logout input[type=submit]{
     border-radius: 100%;
     width: 50px;
     height:50px;
-    border: 2px solid #ff7f50;
+    border: 2px solid #B17871;
 }
 
 
@@ -41,9 +47,10 @@ body{
     height: 300px;
     display: flex;
     justify-content: center;
-    background-color: #3e5c76;
+    background-color: #aa8a97;
     margin: 30px;
     border-radius: 20px;
+    border:#B17871 solid 4px;
     flex-flow: column;
 }
 
@@ -58,4 +65,13 @@ body{
     justify-content: center;
     margin-top: 40px;
 
+}
+
+    /* EFEITO DE MOUSE HOVER */
+.menu1:hover, .menu2:hover, .menu3:hover, .menu4:hover, .menu5:hover, .menu6:hover{
+    transform: scale(1.109); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
+    background-color: rgba(62, 108, 108, 0.506);
+}
+.menu1, .menu2, .menu3, .menu4, .menu5, .menu6{
+    transition: transform 0.5s; /*TEMPO PARA CONCLUSÃO DO EFEITO */
 }
