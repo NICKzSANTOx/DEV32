@@ -1,6 +1,9 @@
 <?php
+
 // CONEXÃO COM O BANCO DE DADOS
 include("utils/conectadb.php");
+include("utils/verificalogin.php");
+
 
 //APÓS O VAMOS CADASTRAR O FUN E O USU AO MESMO TEMPO
 if($_SERVER['REQUEST_METHOD']=='POST'){

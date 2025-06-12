@@ -70,12 +70,19 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
                 <br>
                 <input type='submit' value='ACESSAR'>
+
+                <!-- VALIDA CPF COM JS BRABO -->
+                <!-- <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" onblur="verificarCPF()">
+                <p id="cpf-message" style="color: red;"></p> -->
+
+
             </form>
             
             <br>
 
         </div>
     </div>
-    
+
+    <!-- <script>'scripts/validacpf.js'</script> -->
 </body>
 </html>
