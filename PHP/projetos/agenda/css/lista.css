@@ -1,6 +1,6 @@
 
 .tabela{
-    background-color: rgb(114, 105, 92);
+    background-color: rgb(43, 34, 22);
     border-radius: 10px;
     padding: 10px;
     width: auto;
@@ -13,8 +13,8 @@ table{
     border-collapse: collapse;
 }
 td, th{
-    
-    border: 1px solid black;
+    color: aliceblue;
+    border: 1px solid rgb(187, 103, 103);
     text-align: center;
 }
 

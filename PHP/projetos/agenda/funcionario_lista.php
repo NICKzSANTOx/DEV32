@@ -39,29 +39,37 @@ $enviaquery = mysqli_query($link, $sqlfun);
                     <th>STATUS</th>
                     <!-- DADOS DO USUARIO -->
                     <th>LOGIN</th>
+                    <th>CADASTRO NO SISTEMA?</th>
+                    <th>ALTERAÇÃO</th>
                 </tr>
 
                 <!-- COMEÇOU O PHP -->
                 <?php
-                    // while($tbl2 = mysqli_fetch_array($enviaquery2)){
+                    
                         while ($tbl = mysqli_fetch_array($enviaquery)){
+                            // while($tbl2 = mysqli_fetch_array($enviaquery2)){
                 ?>
                 
                 <tr>
                     <td><?=$tbl[0]?></td> <!--COLETA CÓDIGO DO FUN [0] -->
                     <td><?=$tbl[1]?></td> <!--COLETA NOME DO FUN [1]-->
                     <td><?=$tbl[2]?></td> <!--COLETA CPF DO FUN [2]-->
-                    <td><?=$tbl[3]?></td> <!--COLETA CONTATO DO FUN[3]-->
-                    <td><?=$tbl[4]?></td> <!--COLETA ATIVO DO FUN [4]-->
-                    <td><?=$tbl[5]?></td> <!--COLETA ATIVO DO FUN [5]-->
+                    <td><?=$tbl[3]?></td> <!--COLETA CARGO DO FUN[3]-->
+                    <td><?=$tbl[4]?></td> <!--COLETA CONTATO DO FUN [4]-->
+                    <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO FUN [5]-->
+                    
                     <!-- $tbl2 COLETA SOMENTE O NOME DO USUARIO DO FUN -->
-                    <td><?=$tbl[7]?></td> <!--COLETA LOGIN DO USU [1]-->
+                    <td><?=$tbl[7]?></td> <!--COLETA LOGIN DO USU [7]-->
+                    <td><?= $tbl[10] == 1 ?"SIM":"NÃO"?></td> <!--COLETA STATUS DO USU [10]-->
+
+                    <!-- USANDO GET BRABO -->
+                    <td><a href='funcionario_altera.php?id=<?= $tbl[0]?>'><button>ALTERAR</button></a></td>
 
                     
                 </tr>
                 <?php
                     }
-    
+                
                 ?>
             </table>
         </div>
