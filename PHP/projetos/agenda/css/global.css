@@ -1,5 +1,5 @@
 body{
-    background-color:  #3c2118;
+    background-color:  #11100f  ;
 }
 
 /* AJUSTE E ORGANIZAÇÃO DOS CONTEÚDOS */
@@ -11,7 +11,7 @@ body{
     border-radius: 30px;
     height: 75px;
     font-family: 'Courier New', Courier, monospace;
-    color: #3c2118;
+    color: #efe9e1;
 }
 
 .topo h1{
@@ -47,7 +47,7 @@ body{
     height: 300px;
     display: flex;
     justify-content: center;
-    background-color: #aa8a97;
+    background-color: #5d1c34;
     margin: 30px;
     border-radius: 20px;
     border:#B17871 solid 4px;
@@ -70,7 +70,7 @@ body{
     /* EFEITO DE MOUSE HOVER */
 .menu1:hover, .menu2:hover, .menu3:hover, .menu4:hover, .menu5:hover, .menu6:hover{
     transform: scale(1.109); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
-    background-color: rgba(62, 108, 108, 0.506);
+    background-color: #5d1c348d;
 }
 .menu1, .menu2, .menu3, .menu4, .menu5, .menu6{
     transition: transform 0.5s; /*TEMPO PARA CONCLUSÃO DO EFEITO */
