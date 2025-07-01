@@ -41,11 +41,12 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.login input[type='text'], input[type='password'], input[type='number']{
+.login input[type='text'], input[type='password'], input[type='number'], input[type='date']{
     height: 40px;
     border-radius: 10px;
     border: solid 2px #B17871	;
     background-color: #FFF	;
+    color: rgb(101, 101, 101);
 }
 
 .login input[type='submit']{
