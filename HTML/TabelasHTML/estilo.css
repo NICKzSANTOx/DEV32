@@ -1,0 +1,43 @@
+/* APLICA PLANO DE FUNDO NO BODY */
+body{
+    /* background-image: url("img/finallyawake.jpg"); */
+    background-color: rgb(0, 0, 0);
+}
+
+/* APLICA COR E CENTRALIZA O H1 */
+h1{
+    color: white;
+    text-align: center;
+
+}
+
+/* DEFINE TAMANHO PADRÃO DA IMAGEM */
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+}
+
+/* APLICA COR NOS DADOS DA TABELA E DEFINE TAMANHO DA TABELA */
+table{
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+   
+}
+
+/* CENTRALIZA TEXTO DEFINE BORDAS NAS CÉLULAS */
+td, th{
+    text-align: center;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+/* DEFINE TAMANHO DE FONTE PARA TH */
+th{
+    font-size: 25px;
+}
+/* TROCA FONTE DO TD NA TABELA */
+td{
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
