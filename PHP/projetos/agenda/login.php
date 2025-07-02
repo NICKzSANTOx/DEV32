@@ -67,14 +67,30 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtlogin' placeholder='Digite o seu Login'>
                 <br>
                 <label>SENHA</label>
-                <input type='password' name='txtsenha' placeholder='Senha aqui'>
-
+                <input type='password' id='password' name='txtsenha' placeholder='Senha aqui'>
+                
+                <!-- FAZ PARTE DO OLINHO -->
+                <span class='togglePassword' id='togglePassword' style="margin: -35px 0px 0px 90%;">👀</span>
+                
+                <br>
                 <br>
                 <input type='submit' value='ACESSAR'>
 
-                <!-- VALIDA CPF COM JS BRABO -->
-                <!-- <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" onblur="verificarCPF()">
-                <p id="cpf-message" style="color: red;"></p> -->
+
+                <!-- JS DO OLHINHO -->
+                <script>
+                    const passwordInput = document.getElementById('password');
+                    const togglePassword = document.getElementById('togglePassword');
+                    togglePassword.addEventListener('click', 
+                        function(){
+                            const type = passwordInput.getAttribute('type') === 'password'?'text':'password';
+                            passwordInput.setAttribute('type',type);;
+
+                        this.textContent = type === 'password'?'👀':'🫣';
+                        
+                    });
+                </script>
+                <!-- FIM JS DO OLHINHO -->
 
 
             </form>
@@ -84,6 +100,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         </div>
     </div>
 
-    <!-- <script>'scripts/validacpf.js'</script> -->
 </body>
 </html>

@@ -63,7 +63,8 @@ $enviaquery = mysqli_query($link, $sqlfun);
                     <td><?= $tbl[10] == 1 ?"SIM":"NÃO"?></td> <!--COLETA STATUS DO USU [10]-->
 
                     <!-- USANDO GET BRABO -->
-                    <td><a href='funcionario_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20 style='border: 2px solid #fff; border-radius: 1px; margin: 2px;'></a></td>
+                    <td><a href='funcionario_altera.php?id=<?= $tbl[0]?>'>
+                    <img src='icons/pencil1.png' width=20 height=20 style='border: 2px solid #fff; border-radius: 3px; margin: 2px;'></a></td>
 
                     
                 </tr>

@@ -97,7 +97,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtfuncao' placeholder='Digite a função' required>
                 <br>
                 <label>CONTATO</label>
-                <input type='number' name='txtcontato' placeholder='Digite o telefone' required>
+                <input type='number' id='telefone' name='txtcontato' placeholder='Digite o telefone' maxlength="15" required>
                 <br>
                 <br>
                 <br>
@@ -127,6 +127,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         </div>
     </div>
-    
+    <script src='scripts/script.js'></script>
 </body>
 </html>

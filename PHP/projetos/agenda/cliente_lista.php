@@ -47,7 +47,7 @@ $enviaquery = mysqli_query($link, $sqlcli);
                             // while($tbl2 = mysqli_fetch_array($enviaquery2)){
                 ?>
                 
-                <tr>
+                <tr class='linha'>
                     <td><?=$tbl[0]?></td> <!--COLETA CÓDIGO DO CLI [0] -->
                     <td><?=$tbl[1]?></td> <!--COLETA NOME DO CLI [1]-->
                     <td><?=$tbl[2]?></td> <!--COLETA CPF DO CLI [2]-->
@@ -57,7 +57,7 @@ $enviaquery = mysqli_query($link, $sqlcli);
                     
                     
                     <!-- USANDO GET BRABO -->
-                    <td><a href='cliente_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20 style='border: 2px solid #fff; border-radius: 1px; margin: 2px;'></a></td>
+                    <td><a href='cliente_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
 
                     
                 </tr>

@@ -18,13 +18,22 @@
 table{
     width: 100%;
     border-collapse: collapse;
+    background-color: #899481;
+    border-radius: 10px;
 }
 td, th{
-    color: rgb(183, 189, 195);
-    border: 2px solid #d8a358;
+    border: 2px solid #767676;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
 
 }
 
+th{
+     color: rgb(37, 37, 37);
+     background-color: #a67d44;
+}
 
+tr:hover{
+    background-color: #8d7b62;
+
+}

@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='number' name='txtcpf' placeholder='Digite o CPF' required>
                 <br>
                 <label>CONTATO</label>
-                <input type='number' name='txtcontato' placeholder='Digite o telefone' required>
+                <input type='text' id='telefone' name='txtcontato' placeholder="(00) 00000-0000" maxlength='15' required>
                 <br>
                 <label>DATA DE NASCIMENTO</label>
                 <input type='date' name='dtdata' placeholder='DD/MM/AAAA' required>
@@ -100,6 +100,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         </div>
     </div>
-    
+    <script src='./scripts/script.js'></script>
 </body>
 </html>
