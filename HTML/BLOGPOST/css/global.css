@@ -1,0 +1,35 @@
+
+/* ORGANIZAÇÃO DOS ELEMENTOS */
+body {
+    background-color: black;
+    
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu img{
+    margin: 0px 0px 0px 20px;
+}
+
+.menu h1{
+
+    font-family: 'Riky vampdator Normal', sans-serif;
+    color: rgb(197, 197, 197);
+    margin-top: 30px;
+}
+
+.btn-menu{
+    margin-top: 15px;
+    padding: 20px;
+}
+
+.btn-menu a{
+    font-size: 25px;
+    font-family: 'Riky vampdator Normal', sans-serif;
+    color: rgb(197, 197, 197);
+    padding: 30px;
+    text-decoration: none;
+}

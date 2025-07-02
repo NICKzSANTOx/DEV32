@@ -1,0 +1,96 @@
+
+/* ORGANIZANDO SUBCONTEÚDO */
+.cont-lista{
+    /* ESPAÇO ENTRE BANNER E SUBCONTEUDO */
+    margin-top: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.181);
+    
+}
+
+.cont-lista p{
+    color: red;
+}
+
+.cont-lista a{
+    text-decoration: none;
+}
+
+/* ORGANIZANDO CADA CONTEÚDO DA LISTA */
+.cont-lista1{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}
+.cont-lista2{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}.cont-lista3{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}.cont-lista4{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}
+.cont-lista5{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}
+.cont-lista6{
+    padding: 20px;
+    background-color: rgba(87, 87, 87, 0.404);
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+}
+
+
+/* FIM ORGANIZAÇÃO CONTEÚDO LISTA */
+
+/* CONTEÚDO DOS POSTS */
+.post{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.post h1{
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Riky vampdator Normal', sans-serif;
+    text-align: center;
+}
+
+.post img{
+    width: 500px;
+    height: 200px;
+}
+
+.post text{
+    color: aliceblue;
+    font-family: 'Riky vampdator Normal', sans-serif;
+    text-align: center; 
+}
+/* FIM CONTEÚDO */
