@@ -19,8 +19,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         INNER JOIN usuarios ON FK_FUN_ID = FUN_ID WHERE FUN_ATIVO = 1";
         $enviaquery = mysqli_query($link, $sql);
     }
-    else{
+    else if($ativo == 0){
         $sql = "SELECT * FROM funcionarios INNER JOIN usuarios ON FK_FUN_ID = FUN_ID WHERE FUN_ATIVO = 0";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    else{
+        $sql = "SELECT * FROM funcionarios INNER JOIN usuarios ON FK_FUN_ID = FUN_ID;";
         $enviaquery = mysqli_query($link, $sql);
     }
 }
@@ -49,8 +53,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
              <form action='funcionario_lista.php' method='post'>
                 <div class='filtro'>
                     <input type='radio' name='filtro' value='1' required onclick='submit()' <?= $ativo == '1'?'checked':''?>>ATIVOS
-                    <br>
                     <input type='radio' name='filtro' value='0' required onclick='submit()' <?= $ativo == '0'?'checked':''?>>INATIVOS 
+                  
+                    <input type='radio' name='filtro' value='2' required onclick='submit()' <?= $ativo == '2'?'checked':''?>>TODOS 
+
                 </div>
             </form>
 

@@ -4,11 +4,36 @@ include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
 // TRAZ OS FUNCIONÁRIOS DO BANCO
-$sqlcli = "SELECT * FROM clientes";
+$sqlcli = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
 $enviaquery = mysqli_query($link, $sqlcli);
 
-// TO DO: FAZER O RADIO OU BUTTON PARA LISTAR TODOS, INATIVOS, ATIVOS
 
+// AQUI FILTRA AS MINHAS ESCOLHAS
+$ativo = 1;
+echo($ativo);
+// AGORA FUNÇÕES DE CADA CLICK
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $ativo = $_POST['filtro'];
+    echo($ativo);
+    
+    if($ativo == 1){
+        // VERIFICA SE ATIVO É IGUAL A 1
+        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    else if($ativo == 0){
+        // VERIFICA SE ATIVO É IGUAL A 0
+        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 0";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    else{
+    // VERIFICA SE ATIVO É DIFERENTE DE 1 E 0
+        $sql = "SELECT * FROM clientes;";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +52,17 @@ $enviaquery = mysqli_query($link, $sqlcli);
             <!-- BOTÃO VOLTAR -->
             <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
             <h1>LISTA DE CLIENTES</h1>
-            
+             <!-- CRIAÇÃO DE FILTRO DE TABLE -->
+             <form action='cliente_lista.php' method='post'>
+                <div class='filtro'>
+                    <input type='radio' name='filtro' value='1' required onclick='submit()' <?= $ativo == '1'?'checked':''?>>ATIVOS
+                   
+                    <input type='radio' name='filtro' value='0' required onclick='submit()' <?= $ativo == '0'?'checked':''?>>INATIVOS 
+                   
+                    <input type='radio' name='filtro' value='2' required onclick='submit()' <?= $ativo == '2'?'checked':''?>>TODOS 
+
+                </div>
+            </form>
            
             <table>
                 <tr> 

@@ -18,22 +18,39 @@
 table{
     width: 100%;
     border-collapse: collapse;
-    background-color: #899481;
+    background-color: #d1d1d1;
     border-radius: 10px;
 }
 td, th{
     border: 2px solid #767676;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
 
 }
 
 th{
      color: rgb(37, 37, 37);
-     background-color: #a67d44;
+     background-color: #908473;
 }
+
+tr{
+     transition: transform 0.5s; /*TEMPO PARA CONCLUSÃO DO EFEITO */
+}
+
 
 tr:hover{
-    background-color: #8d7b62;
+    background-color: #c60052;
+    transform: scale(1.008); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
 
 }
+
+.filtro{
+    width: 300px;
+    background-color: #003064;
+    border-radius: 10px;
+    color: #899481;
+    padding: 10px;
+    border: 2px solid #899481;
+}
+
