@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='password' id='password' name='txtsenha' placeholder='Senha aqui'>
                 
                 <!-- FAZ PARTE DO OLINHO -->
-                <span class='togglePassword' id='togglePassword' style="margin: -35px 0px 0px 90%;">👀</span>
+                <span class='togglePassword' id='togglePassword' style="margin: -35px 0px 0px 90%;">🔒</span>
                 
                 <br>
                 <br>
@@ -86,7 +86,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                             const type = passwordInput.getAttribute('type') === 'password'?'text':'password';
                             passwordInput.setAttribute('type',type);;
 
-                        this.textContent = type === 'password'?'👀':'🫣';
+                        this.textContent = type === 'password'?'🔒':'🔓';
                         
                     });
                 </script>

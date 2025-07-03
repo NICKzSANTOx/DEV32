@@ -91,7 +91,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtnome' placeholder='Digite o nome completo' required>
                 <br>
                 <label>CPF</label>
-                <input type='number' name='txtcpf' placeholder='Digite o CPF' required>
+                <input type='text' id="cpf" name='txtcpf' placeholder="000.000.000-00" maxlength="14" oninput="formatarCPF(this)">
                 <br>
                 <label>FUNÇÃO</label>
                 <input type='text' name='txtfuncao' placeholder='Digite a função' required>

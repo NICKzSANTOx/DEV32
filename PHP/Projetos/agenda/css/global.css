@@ -7,7 +7,7 @@ body{
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    background-color: #7505b5;
+    background-color: #b17871bd;
     border-radius: 30px;
     height: 75px;
     font-family: 'Courier New', Courier, monospace;
@@ -47,7 +47,7 @@ body{
     height: 300px;
     display: flex;
     justify-content: center;
-    background-color: #5d1c34;
+    background-color: #5d1c34dd;
     margin: 30px;
     border-radius: 20px;
     border:#B17871 solid 4px;

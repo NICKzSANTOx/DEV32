@@ -12,17 +12,14 @@
 
             input.value = value;
         });    
-        // FORMATO DO CPF
+        
 
-        function formatarCPF(input) {
-            // Remove tudo que não é número
-            let valor = input.value.replace(/\D/g, '');
+        document.getElementById('cpf').addEventListener('input', function(event){
+          const input = event.target;
+            let valor = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
 
-            // Adiciona a máscara
             valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
             valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
             valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-
-            // Atualiza o valor do input
             input.value = valor;
-        }
+        });    

@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtnome' placeholder='Digite o nome completo' required>
                 <br>
                 <label>CPF</label>
-                <input type='number' name='txtcpf' placeholder='Digite o CPF' required>
+                <input type='text' id='cpf' name='txtcpf' placeholder="000.000.000-00" maxlength='14' required>
                 <br>
                 <label>CONTATO</label>
                 <input type='text' id='telefone' name='txtcontato' placeholder="(00) 00000-0000" maxlength='15' required>
