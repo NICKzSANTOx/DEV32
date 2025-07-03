@@ -57,6 +57,21 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             VALUES ('$usulogin', '$ususenha', $retorno, $ativofun)";
             $enviaqueryusu = mysqli_query($link, $sqlusu);
         }
+        else {
+            
+            // TRAZ O ID DO FUNCIONARIO CADASTRADO PARA PASSAR NO LOGIN
+            $sql = "SELECT FUN_ID FROM funcionarios where FUN_CPF = '$cpffun'";
+            $enviaquery = mysqli_query($link, $sql);
+            $retorno = mysqli_fetch_array($enviaquery) [0];
+
+
+            $usulogin = "Sem Cadastro";
+            $ususenha = "Sem Cadastro";
+            $ativofun = "0";
+            $sqlusu = "INSERT INTO usuarios (USU_LOGIN, USU_SENHA, FK_FUN_ID, USU_ATIVO)
+            VALUES ('$usulogin', '$ususenha', $retorno, $ativofun)";
+            $enviaqueryusu = mysqli_query($link, $sqlusu);
+        }
         
         echo("<script>window.alert('FUNCIONARIO ALASTRADO COM SUCESSO!');</script>");
     }
@@ -97,7 +112,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtfuncao' placeholder='Digite a função' required>
                 <br>
                 <label>CONTATO</label>
-                <input type='number' id='telefone' name='txtcontato' placeholder='Digite o telefone' maxlength="15" required>
+                <input type='text' id='telefone' name='txtcontato' placeholder="(00) 00000-0000" maxlength='15' required>
                 <br>
                 <br>
                 <br>
