@@ -2,7 +2,6 @@
 
 // CONEXÃO COM O BANCO DE DADOS
 include("utils/conectadb.php");
-include("utils/verificalogin.php");
 
 //APÓS O VAMOS CADASTRAR O FUN E O USU AO MESMO TEMPO
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -11,7 +10,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $nomecli = $_POST['txtnome'];
     $cpfcli = $_POST['txtcpf'];
     $contatocli = $_POST['txtcontato'];
-    $ativocli = $_POST['ativo'];
     $datanasccli = $_POST['dtdata'];
     // COLETA SENHA DE USUARIO
     $senhacli = sha1($_POST['txtsenha']);
@@ -35,14 +33,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     else{
         // CASO FUNCIONÁRIO NÃO ESTEJA CADASTRADO
         $sql = "INSERT INTO clientes (CLI_NOME, CLI_CPF, CLI_TEL,CLI_DATANASC, CLI_ATIVO, CLI_SENHA)
-        VALUES ('$nomecli', '$cpfcli', '$contatocli', '$datanasccli', $ativocli,  '$senhacli' )";
+        VALUES ('$nomecli', '$cpfcli', '$contatocli', '$datanasccli', 1,  '$senhacli' )";
 
         // CONECTA COM O BANCO E MANDA A QUERY
         $enviaquery = mysqli_query($link, $sql);
 
         
-        echo("<script>window.alert('CLIENTE ALASTRADO COM SUCESSO!');</script>");
-         echo "<script>window.location.href='cliente_lista.php';</script>";
+        echo("<script>window.alert('CLIENTE CADASTRADO COM SUCESSO!');</script>");
+        echo "<script>window.location.href='cliente_lista.php';</script>";
 
     }
 }
@@ -53,8 +51,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/formulario.css">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="../css/formulario.css">
+    <link rel="stylesheet" href="../css/global.css">
     <link href="https://fonts.cdnfonts.com/css/master-lemon" rel="stylesheet">
     <title>CADASTRO DE CLIENTE</title>
 </head>
@@ -64,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <div class="formulario">
 <!-- FIRULAS Y FIRULAS -->
  
-            <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
+            <a href="index.php"><img src='../icons/arrow47.png' width=50 height=50></a>
             
             <form class='login' action="cliente_cadastra.php" method="post">
             
@@ -85,15 +83,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <label>DIGITE UMA SENHA</label>
                 <input type='password' name='txtsenha' placeholder='Senha aqui'>
                 <br>
-          
-                <label>INICIAR CLIENTE COMO:</label>
-                <div class='rbativo'>
-                    
-                    <input type="radio" name="ativo" id="ativo" value="1" checked><label>ATIVO</label>
-                    <br>
-                    <input type="radio" name="ativo" id="inativo" value="0"><label>INATIVO</label>
-                </div>
-
                 <br>
                 <input type='submit' value='CADASTRAR'>
             </form>

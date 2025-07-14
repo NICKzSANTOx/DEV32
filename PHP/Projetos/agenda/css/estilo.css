@@ -21,7 +21,7 @@ body{
 
 .formulario{
     height: auto;
-    padding: 5%;
+    padding: 5% 10% 5% 10%;
     margin-top: 20px;
     background-color: #5d1c34;
     border-radius: 20px;
@@ -48,6 +48,7 @@ body{
     border: solid 2px #B17871	;
     background-color: #FFF	;
     color: rgb(101, 101, 101);
+     width: 100%;
 }
 
 .login input[type='submit']{
@@ -57,7 +58,8 @@ body{
     color: aliceblue;
     border: none;
     height: 50px;
-    width: 300px;
+    width: 30%;
+    max-width: 40%;
 }
 
 .login input[type='submit']:hover {

@@ -74,6 +74,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         }
         
         echo("<script>window.alert('FUNCIONARIO ALASTRADO COM SUCESSO!');</script>");
+        echo "<script>window.location.href='funcionario_lista.php';</script>";
+
     }
 
 
