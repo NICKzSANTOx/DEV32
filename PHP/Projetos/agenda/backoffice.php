@@ -52,8 +52,8 @@ else{
                 </div> -->
 
                 <div class="menu2">
-                    <a href="usuario_lista.php"><img src ='icons/th2.png' width="200" height="200"></a>
-                    <label>Listar Usuários</label>
+                    <a href="servico_cadastra.php"><img src ='icons/th2.png' width="200" height="200"></a>
+                    <label>Cadastrar Serviços</label>
                 </div>
 
                 <div class="menu3">
