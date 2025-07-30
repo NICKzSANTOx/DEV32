@@ -4,31 +4,31 @@ include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
 // TRAZ OS FUNCIONÁRIOS DO BANCO
-$sqlcli = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
-$enviaquery = mysqli_query($link, $sqlcli);
+$sqlcat = "SELECT * FROM catalogo WHERE CAT_ATIVO = 1";
+$enviaquery = mysqli_query($link, $sqlcat);
 
 
 // AQUI FILTRA AS MINHAS ESCOLHAS
 $ativo = 1;
-echo($ativo);
+
 // AGORA FUNÇÕES DE CADA CLICK
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ativo = $_POST['filtro'];
-    echo($ativo);
+   
     
     if($ativo == 1){
         // VERIFICA SE ATIVO É IGUAL A 1
-        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
+        $sql = "SELECT * FROM catalogo WHERE CAT_ATIVO = 1";
         $enviaquery = mysqli_query($link, $sql);
     }
     else if($ativo == 0){
         // VERIFICA SE ATIVO É IGUAL A 0
-        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 0";
+        $sql = "SELECT * FROM catalogo WHERE CAT_ATIVO = 0";
         $enviaquery = mysqli_query($link, $sql);
     }
     else{
     // VERIFICA SE ATIVO É DIFERENTE DE 1 E 0
-        $sql = "SELECT * FROM clientes;";
+        $sql = "SELECT * FROM catalogo;";
         $enviaquery = mysqli_query($link, $sql);
     }
     
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/lista.css">
 
-    <title>LISTA CLIENTES</title>
+    <title>LISTA SERVIÇOS</title>
 </head>
 <body>
     <div class='global'>
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
             <h1>LISTA DE CLIENTES</h1>
              <!-- CRIAÇÃO DE FILTRO DE TABLE -->
-             <form action='cliente_lista.php' method='post'>
+             <form action='servico_lista.php' method='post'>
                 <div class='filtro'>
                     <input type='radio' name='filtro' value='1' required onclick='submit()' <?= $ativo == '1'?'checked':''?>>ATIVOS
                    
@@ -66,12 +66,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
            
             <table>
                 <tr> 
-                    <th>ID CLIENTE</th>
+                    <th>ID SERVIÇO</th>
                     <th>NOME</th>
-                    <th>CPF</th>
-                    <th>CONTATO</th>
-                    <th>DATA NASCIMENTO</th>  
+                    <th>DESCRIÇÃO</th>
+                    <th>PREÇO</th>
+                    <th>TEMPO</th>
                     <th>STATUS</th>
+                    <th>IMAGEM</th>
                     <th>ALTERAÇÃO</th>
                 </tr>
 
@@ -83,16 +84,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 ?>
                 
                 <tr class='linha'>
-                    <td><?=$tbl[0]?></td> <!--COLETA CÓDIGO DO CLI [0] -->
-                    <td><?=$tbl[1]?></td> <!--COLETA NOME DO CLI [1]-->
-                    <td><?=$tbl[2]?></td> <!--COLETA CPF DO CLI [2]-->
-                    <td><?=$tbl[3]?></td> <!--COLETA CONTATO DO CLI[3]-->
-                    <td><?=$tbl[5]?></td> <!--COLETA STATUS DO CLI [4]-->
-                    <td><?=$tbl[4] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CLI [5]-->
-                    
-                    
+                    <td><?=$tbl[0]?></td> <!--COLETA CÓDIGO DO CAT [0] -->
+                    <td><?=$tbl[1]?></td> <!--COLETA NOME DO CAT [1]-->
+                    <td><?=$tbl[2]?></td> <!--COLETA DESCRIÇAO DO CAT [2]-->
+                    <td><?=$tbl[3]?></td> <!--COLETA PREÇO DO CAT[3]-->
+                    <td><?= $tbl[4] <= 59? $tbl[4]." Minutos": ($tbl[4] / 60)." Hora(s)"?> </td> <!--COLETA TEMPO DO CAT [4]-->
+                    <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CAT [5]-->
+                    <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl[6]?>' width=100 height=100></td>
+                 
                     <!-- USANDO GET BRABO -->
-                    <td><a href='cliente_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
+                    <td><a href='servico_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
                     
 
                     

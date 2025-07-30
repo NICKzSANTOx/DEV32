@@ -6,7 +6,7 @@ body{
     display: flex;
     flex-flow: column;
     /* background-color: #5d1c34	; */
-    width: 80%;
+    width: 70%;
     height: auto;
     border-radius: 20px;
     justify-self: center;
@@ -42,7 +42,12 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.login input[type='text'], input[type='password'], input[type='number'], input[type='date']{
+.login input[type='text'],
+input[type='password'],
+input[type='number'], 
+input[type='date'],
+textarea,
+input[type='decimal']{
     height: 40px;
     border-radius: 10px;
     border: solid 2px #B17871	;
@@ -69,6 +74,7 @@ body{
     
     cursor: pointer; /* SUGESTÃO DE PONTEIRO GUILHERME (PONTEIRO MÃOZINHA) */
 }
+
 
 /* AJUSTAR OS RADIOS BUTTONS JUNTAMENTE COM O LABEL */
 .rbativo{

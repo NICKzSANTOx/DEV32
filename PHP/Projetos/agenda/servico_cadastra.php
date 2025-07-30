@@ -68,10 +68,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <input type='text' name='txtnome' placeholder='Digite o nome do Serviço' required>
                 <br>
                 <label>DESCRIÇÃO</label>
-                <textarea name='txtdescricao'></textarea>
+                <textarea name='txtdescricao' placeholder='Digite a Descrição do Serviço'></textarea>
                 <br>
                 <label>PREÇO</label>
-                <input type='decimal'name='txtpreco'>
+                <input type='decimal'name='txtpreco' placeholder='HUE$'>
                 <br>
                 <label>DURAÇÃO</label>
                 <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' required>
