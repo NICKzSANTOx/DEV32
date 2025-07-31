@@ -1,54 +1,31 @@
 <?php
+
 include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
 
-
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $nomeservico = $_POST['txtnome'];
-    $descricaoservico = $_POST['txtdescricao'];
-    $precoservico = $_POST['txtpreco'];
-    $temposervico = $_POST['txttempo'];
-    $ativo = $_POST['ativo'];
+    $imagem = $imagem_atual;
 
-    // RITUAL COM A IMAGEM ⛧
+
+    // AJUSTANDO IMAGEM PARA O BANCO
     if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK){
         $imagem_temp = $_FILES['imagem']['tmp_name'];
         $imagem = file_get_contents($imagem_temp);
+        // CRIPTOGRAFA IMAGEM EM BASE64
         $imagem_base64 = base64_encode($imagem);
-    }
-    // RITUAL FINALIZADO
+    };
 
-    // VERIFICA O PRODUTO NA BASE
-
-    $sql = "SELECT COUNT(CAT_ID) FROM catalogo WHERE CAT_NOME = '$nomeservico'";
-    $enviaquery = mysqli_query($link, $sql);
-    
-    $retorno = mysqli_fetch_array($enviaquery) [0];
-    
-    if($retorno == 1){
-        echo "<script>window.alert('PRODUTO JÁ CADASTRADO');</script>";
-    }
-    else {
-        $sqlcadastra = "INSERT INTO catalogo (CAT_NOME, CAT_DESCRICAO, CAT_PRECO, CAT_TEMPO,
-        CAT_ATIVO, CAT_IMAGEM)
-        VALUES ('$nomeservico', '$descricaoservico', '$precoservico', '$temposervico', $ativo, '$imagem_base64')";
-        $enviaquery = mysqli_query($link, $sqlcadastra);
-        
-        echo "<script>window.alert('CADASTRADO COM SUCESSO!');</script>";
-        echo"<script>window.location.href('servico_lista.php');</script>";
-
-    }
+    echo($imagem);
 }
 
 
-// COLETA O ID NA URL LISTANDO DO BANCO E PREENCHENDO OS CAMPOS
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM catalogo WHERE CAT_ID = '$id'";
 $enviaquery = mysqli_query($link, $sql);
 
-while ($tbl = mysqli_fetch_array($enviaquery)){
+while($tbl = mysqli_fetch_array($enviaquery)){
     $id = $tbl[0];
     $nomeservico = $tbl[1];
     $descricaoservico = $tbl[2];
@@ -57,8 +34,6 @@ while ($tbl = mysqli_fetch_array($enviaquery)){
     $ativo = $tbl[5];
     $imagem_atual = $tbl[6];
 }
-
-
 
 ?>
 
@@ -80,9 +55,9 @@ while ($tbl = mysqli_fetch_array($enviaquery)){
         <div class="formulario">
 <!-- FIRULAS Y FIRULAS -->
  
-            <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50 ></a>
+            <a href="servico_lista.php"><img src='icons/arrow47.png' width=50 height=50 ></a>
             
-            <form class='login' action="servico_cadastra.php" method="post" enctype="multipart/form-data">
+            <form class='login' action="servico_altera.php" method="post" enctype="multipart/form-data">
 
                 <!-- QUANDO GRAVAR, ELE COLETA O QUE VEIO DO BANCO PRA FAZER O UPDATE CORRETO -->
                 <input type='hidden' name='id' value='<?= $id ?>'>
@@ -94,7 +69,7 @@ while ($tbl = mysqli_fetch_array($enviaquery)){
                 <textarea name='txtdescricao' placeholder='Digite a Descrição do Serviço'><?= $descricaoservico?></textarea>
                 <br>
                 <label>PREÇO</label>
-                <input type='decimal'name='txtpreco' placeholder='HUE$' value='R$ <?= $precoservico?>'>
+                <input type='decimal'name='txtpreco' placeholder='HUE$' value='<?= $precoservico?>'>
                 <br>
                 <label>DURAÇÃO</label>
                 <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='<?= $temposervico?>' required>
@@ -112,18 +87,16 @@ while ($tbl = mysqli_fetch_array($enviaquery)){
                     <br>
                     <input type="radio" name="ativo" id="inativo" value="0"><label>INATIVO</label>
                 </div>
-
-
-                <!-- APRESENTAÇÃO DA IMAGEM! -->
-                 <div id='cat_imagem'>
-                    <img src='data:image/jpeg;base64, <?= $imagem_atual?>' width=100 height=100>
-                 </div>
-
-
                 <br>
+                <label>IBAGEM</label>
+                <img name='imagem_atual' src="data:image/jpeg;base64,<?= $imagem_atual?>" width="120" height="120">
+                <input type="file" name='imagem' id='imagem'>
+
                 <input type='submit' value='ALTERAR'>
             </form>
+             <!-- APRESENTAÇÃO DA IMAGEM! -->
             
+                    
             <br>
 
         </div>

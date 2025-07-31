@@ -88,9 +88,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <td><?=$tbl[1]?></td> <!--COLETA NOME DO CAT [1]-->
                     <td><?=$tbl[2]?></td> <!--COLETA DESCRIÇAO DO CAT [2]-->
                     <td><?=$tbl[3]?></td> <!--COLETA PREÇO DO CAT[3]-->
+                    
                     <td><?= $tbl[4] <= 59? $tbl[4]." Minutos": ($tbl[4] / 60)." Hora(s)"?> </td> <!--COLETA TEMPO DO CAT [4]-->
+                    
                     <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CAT [5]-->
-                    <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl[6]?>' width=100 height=100></td>
+                    <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl[6]?>' width=150 height=150></td>
                  
                     <!-- USANDO GET BRABO -->
                     <td><a href='servico_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
