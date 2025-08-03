@@ -4,21 +4,36 @@ include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $imagem = $imagem_atual;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $id = $_POST['id'];
+    $nomeservico = $_POST['txtnome'];
+    $descricaoservico = $_POST['txtdescricao'];
+    $precoservico = $_POST['txtpreco'];
+    $temposervico = $_POST['txttempo'];
+    $ativo = $_POST['ativo'];   
 
-
-    // AJUSTANDO IMAGEM PARA O BANCO
-    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK){
+    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK){
         $imagem_temp = $_FILES['imagem']['tmp_name'];
         $imagem = file_get_contents($imagem_temp);
-        // CRIPTOGRAFA IMAGEM EM BASE64
         $imagem_base64 = base64_encode($imagem);
     };
 
-    echo($imagem);
-}
+    if($imagem_atual == $imagem_base64){
+        $sql = "UPDATE catalogo SET CAT_NOME = '$nomeservico', CAT_DESCRICAO = '$descricaoservico', CAT_PRECO = '$precoservico', CAT_TEMPO = '$temposervico', CAT_ATIVO = '$ativo' WHERE CAT_ID = '$id'";
+        
+        $enviaquery = mysqli_query($link, $sql);
+         echo "<script>window.alert('PRODUTO ALTERADO!');</script>";
+        echo "<script>window.location.href='servico_lista.php';</script>";
+    }
+    else{
+        $sql = "UPDATE catalogo SET CAT_NOME = '$nomeservico', CAT_DESCRICAO = '$descricaoservico', CAT_PRECO = '$precoservico', CAT_TEMPO = '$temposervico', CAT_ATIVO = '$ativo', CAT_IMAGEM = '$imagem_base64' WHERE CAT_ID = '$id'";
+        $enviaquery = mysqli_query($link, $sql);
+        echo "<script>window.alert('PRODUTO ALTERADO!');</script>";
+        echo "<script>window.location.href='servico_lista.php';</script>";
+    }
+    
 
+}
 
 $id = $_GET['id'];
 
@@ -90,11 +105,10 @@ while($tbl = mysqli_fetch_array($enviaquery)){
                 <br>
                 <label>IBAGEM</label>
                 <img name='imagem_atual' src="data:image/jpeg;base64,<?= $imagem_atual?>" width="120" height="120">
-                <input type="file" name='imagem' id='imagem'>
+       
 
                 <input type='submit' value='ALTERAR'>
             </form>
-             <!-- APRESENTAÇÃO DA IMAGEM! -->
             
                     
             <br>
