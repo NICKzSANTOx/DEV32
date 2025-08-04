@@ -59,13 +59,19 @@ while($tbl = mysqli_fetch_array($enviaquery)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/global.css">
     <link href="https://fonts.cdnfonts.com/css/master-lemon" rel="stylesheet">
     <title>CADASTRO DE SERVIÇOS</title>
 </head>
 <body>
     <div class="global">
+        <!-- AJUSTE DA IMAGEM A PARTE -->
+        <div class='imagem'>
+            
+            <img name='imagem_atual' src="data:image/jpeg;base64,<?= $imagem_atual?>">
+        
+        </div>
         
         <div class="formulario">
 <!-- FIRULAS Y FIRULAS -->
@@ -73,7 +79,7 @@ while($tbl = mysqli_fetch_array($enviaquery)){
             <a href="servico_lista.php"><img src='icons/arrow47.png' width=50 height=50 ></a>
             
             <form class='login' action="servico_altera.php" method="post" enctype="multipart/form-data">
-
+                
                 <!-- QUANDO GRAVAR, ELE COLETA O QUE VEIO DO BANCO PRA FAZER O UPDATE CORRETO -->
                 <input type='hidden' name='id' value='<?= $id ?>'>
 
@@ -102,18 +108,17 @@ while($tbl = mysqli_fetch_array($enviaquery)){
                     <br>
                     <input type="radio" name="ativo" id="inativo" value="0"><label>INATIVO</label>
                 </div>
-                <br>
-                <label>IBAGEM</label>
-                <img name='imagem_atual' src="data:image/jpeg;base64,<?= $imagem_atual?>" width="120" height="120">
-       
 
+       
+                
+                <br>
+                
                 <input type='submit' value='ALTERAR'>
             </form>
-            
-                    
             <br>
-
         </div>
+        
+
     </div>
 
 </body>
