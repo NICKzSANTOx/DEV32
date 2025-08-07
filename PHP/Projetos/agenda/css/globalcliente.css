@@ -43,24 +43,29 @@ body{
 }
 
 .menu1{
-    width: 450px;
-    height: 450px;
+    width: 550px;
+    height: 550px;
     display: flex;
     justify-content: center;
     background-color: #5d1c34dd;
-    margin: 25px;
+    margin: 20px;
     border-radius: 20px;
     border:#B17871 solid 4px;
     flex-flow: column;
     align-items: center;
+    padding: 20px;
     
+}
+
+.menu1 img{
+    border-radius: 100%;
 }
 
 .menu1 label{
     border-radius: 10px;
     margin-bottom: 5px;
-    color: #3d2927;
-    font-size: 20px;
+    color: #898787;
+    font-size: 30px;
     text-align: center;
     padding: 2px;
     font-family: 'Courier New', Courier, monospace;
@@ -68,40 +73,49 @@ body{
 }
 
 .menus a{
+    display: flex;
+    justify-content: center;
     height: 50px;
-    width: 400px; 
+    width: 400px;
+    padding: 10px;
 }
 
 .texto-card{
-    background-color: #B17871 ;
-    width: 300px;
+    width: 350px;
     border-radius: 10px;
     margin: 20px;
-    color: #111111;
+    color: #ffffff;
     font-size: 20px;
     text-align: center;
     padding: 2px;
     font-family: 'Courier New', Courier, monospace;
-
 }
 
-.menu1 text, label{
-    color: #b3b2b2;
+
+.menu1 text{
+    color: #ffffff;
     font-size: 25px;
     text-align: center;
     padding: 3px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.menu1 button{
+    background-color: #5f3d49ad;
+    width: 90%;
+    height: 20px;
+    padding: 20px;
     
-
 }
 
-.menu1 a{
-    display: flex;
-    justify-content: center;
-    width: 500px;
+#icone{
+    margin-top: -25px;
+    width: 50px;
     height: 50px;
-
+    background-color: #5d1c3400;
+    
 }
+
 
     /* EFEITO DE MOUSE HOVER */
     /* LISTA USUARIOS */

@@ -23,16 +23,16 @@ $enviaquery = mysqli_query($link, $sql);
 
         <!-- FAZER O ESQUEMA DE ANÁLISE DE LOGIN -->
 
-        <!-- <div class="topo"> -->
+        <div class="topo">
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
-            <!-- <h1>BEM VINDO <?php // echo strtoupper($nomeusuario)?> </h1> -->
+            <h1>BEM VINDO <?php echo strtoupper($nomeusuario)?> </h1>
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
-            <!-- <div class="logout" method='post'> -->
-                <!-- <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a> -->
-            <!-- </div> -->
-        <!-- </div> -->
+            <div class="logout" method='post'>
+                <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
+            </div>
+        </div>
     
             <div class='menus'>
                 <!-- OS CARDS DE MENU -->
@@ -58,7 +58,7 @@ $enviaquery = mysqli_query($link, $sql);
                     <label>PREÇO DO SERVIÇO</label>
                     <text>R$ <?= $retorno[3]?></text> <!--COLETA A PREÇO DO SERVIÇO POS 3 -->
                     <!-- USANDO GET BRABO -->
-                    <a href='verservico.php?id=<?= $retorno[0]?>'><button><img src='../icons/zoom1.png' width=50 height=50></button></a>
+                    <a href='verservico.php?id=<?= $retorno[0]?>'><button><img id='icone' src='../icons/zoom1.png'></button></a>
                     
                 </div>
             <?php
