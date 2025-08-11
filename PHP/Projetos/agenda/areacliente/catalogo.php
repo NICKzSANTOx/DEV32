@@ -23,10 +23,22 @@ $enviaquery = mysqli_query($link, $sql);
 
         <!-- FAZER O ESQUEMA DE ANÁLISE DE LOGIN -->
 
+        <!-- AQUI O CLIENTE NÃO FEZ LOGIN -->
+        <div class='topo'>
+            <h1>BEM VINDO AO SALÃO SALLONCCINA</h1>
+            <!-- BOTÃO DE FAZER LOGIN -->
+            <div class='login'>
+                <a href='logincliente.php'>
+                    <img src='../icons/user2.png'width=50 height=50>
+                </a>
+            </div>
+        </div>
+
+        <!-- AQUI O CLIENTE JÁ FEZ LOGIN -->
         <div class="topo">
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
-            <h1>BEM VINDO <?php echo strtoupper($nomeusuario)?> </h1>
+            <h1>BEM VINDO <?php echo strtoupper($nomecliente)?> </h1>
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
