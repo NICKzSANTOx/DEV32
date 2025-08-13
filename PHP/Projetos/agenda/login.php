@@ -10,8 +10,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $login = $_POST['txtlogin'];
     $senha = $_POST['txtsenha'];
 
-    T
-
     // TODO PARA AMANHÃ
     // SANITIZAR O ERRO FLICK NO ERRO DE USU E SENHA (SUPONHO VARIAVEL VAZIA DE ID)
 
@@ -34,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         Header("Location: backoffice.php");
     }
     else{
-        echo("<script>window.alert('LOGIN OU SENHA INCORRETOS');</script>");
+        echo("<script>windowrt('LOGIN OU SENHA INCORRETOS');</script>");
         echo("<script>window.location.href='login.php';</script>");
     }
 

@@ -1,12 +1,16 @@
 <?php
 include("../utils/conectadb.php");
 // FAZER O INCLUDE DO VALIDACLIENTE
+include("../utils/validacliente.php");
+
+
+
+
 
 $sql = "SELECT * FROM catalogo WHERE CAT_ATIVO = 1";
 $enviaquery = mysqli_query($link, $sql);
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -23,6 +27,9 @@ $enviaquery = mysqli_query($link, $sql);
 
         <!-- FAZER O ESQUEMA DE ANÁLISE DE LOGIN -->
 
+        <!-- ABERTURA DO PORTAL  -->
+<?php if(!isset($idcliente)){?>
+
         <!-- AQUI O CLIENTE NÃO FEZ LOGIN -->
         <div class='topo'>
             <h1>BEM VINDO AO SALÃO SALLONCCINA</h1>
@@ -34,6 +41,8 @@ $enviaquery = mysqli_query($link, $sql);
             </div>
         </div>
 
+<!-- FECHA PRA ABRIR -->
+<?php } else{ ?>
         <!-- AQUI O CLIENTE JÁ FEZ LOGIN -->
         <div class="topo">
 
@@ -42,11 +51,15 @@ $enviaquery = mysqli_query($link, $sql);
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
-                <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
+                <a href='../logoutcliente.php'><img src='../icons/backspace.png'width=50 height=50></a>
             </div>
         </div>
-    
-            <div class='menus'>
+
+<?php } ?>
+<!-- FECHA PRA FECHAR -->
+
+
+    <div class='menus'>
                 <!-- OS CARDS DE MENU -->
             
                 <!-- AQUI O PORTAL COMEÇA -->
