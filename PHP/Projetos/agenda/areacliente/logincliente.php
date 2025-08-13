@@ -8,22 +8,27 @@ session_start();
 if($_SERVER['REQUEST_METHOD']=='POST'){
     // COLETA OS DADOS DO CAMPO DE TEXTO DO HTML
     $clientecpf = $_POST['txtcpf'];
-    $senha = $_POST['txtsenha'];
+    $senha = sha1($_POST['txtsenha']);
 
     // VERIFICAR SE CLIENTE EXISTE
     $sqlcli = "SELECT COUNT(CLI_ID) from clientes 
     WHERE CLI_CPF = '$clientecpf' AND CLI_SENHA = '$senha' AND CLI_ATIVO = 1";
-
+    echo($sqlcli);
     $enviaquery = mysqli_query($link, $sqlcli);
-    $retorno = mysqli_fetch_array($enviaquery);
+    $retorno = mysqli_fetch_array($enviaquery) [0];
 
+    // COLETANDO O NOME DO NOSSO CILENTE
+    $sqlnome = "SELECT CLI_ID from clientes 
+    WHERE CLI_CPF = '$clientecpf' AND CLI_SENHA = '$senha'";
+
+    $enviaquery2 = mysqli_query($link, $sqlnome);
+    $idcliente = mysqli_fetch_array($enviaquery2) [0];
 
     // VALIDAÇÃO DO RETORNO
     if($retorno == 1){
 
          // COLETAR O ID DO CLIENTE (OUTRA QUERY)
         $_SESSION['idcliente'] = $idcliente;
-
         Header("Location: catalogo.php");
     }
     else{

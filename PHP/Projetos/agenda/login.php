@@ -10,12 +10,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $login = $_POST['txtlogin'];
     $senha = $_POST['txtsenha'];
 
-    // COLETA DE NOME DO FUNCIONÁRIO
-    $sqlfun = "SELECT FK_FUN_ID from usuarios 
-    WHERE usu_login = '$login' AND usu_senha = '$senha'";
-
-    $enviaquery2 = mysqli_query($link, $sqlfun);
-    $idfuncionario = mysqli_fetch_array($enviaquery2) [0];
+    T
 
     // TODO PARA AMANHÃ
     // SANITIZAR O ERRO FLICK NO ERRO DE USU E SENHA (SUPONHO VARIAVEL VAZIA DE ID)
