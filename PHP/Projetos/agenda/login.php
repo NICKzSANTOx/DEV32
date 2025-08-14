@@ -25,6 +25,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     // RETORNO DO QUE VEM DO BANCO
     $retorno = mysqli_fetch_array($enviaquery) [0];
 
+
+    // COLETA DE NOME DO FUNCIONÁRIO
+    $sqlfun = "SELECT FK_FUN_ID from usuarios 
+    WHERE usu_login = '$login' AND usu_senha = '$senha'";
+
+    $enviaquery2 = mysqli_query($link, $sqlfun);
+    $idfuncionario = mysqli_fetch_array($enviaquery2) [0];
+
     // VALIDAÇÃO DO RETORNO
     if($retorno == 1){
         $_SESSION['idfuncionario'] = $idfuncionario;
