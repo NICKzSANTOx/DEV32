@@ -54,7 +54,24 @@ input[type='decimal']{
     background-color: #FFF	;
     color: rgb(101, 101, 101);
 }
+.opt{
+    height: 40px;
+    border-radius: 10px;
+    border: solid 2px #B17871	;
+    background-color: #FFF	;
+    color: rgb(101, 101, 101);
+}
 
+.opt:focus{
+        border-radius: 10px;
+        border-color: #c5dcf5;
+        outline: none;
+        box-shadow: 0 0 3px #007bff80;
+    }
+
+.opt option::checkmark{
+    background-color: #B17871;
+}
 .login input[type='submit']{
     background-color: #D08A98	;
     border-radius: 20px;

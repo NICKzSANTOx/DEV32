@@ -55,6 +55,29 @@ input[type='decimal']{
     color: rgb(101, 101, 101);
 }
 
+.opt{
+    appearance: none;           /* Remove o estilo padrão */
+      -webkit-appearance: none;   /* Para Safari */
+      -moz-appearance: none;      /* Para Firefox */
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px 40px 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%22292%22%20height%3D%22292%22%20viewBox%3D%220%200%20292%20292%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M287%2069c5%205%205%2013%200%2018L165%20209c-5%205-13%205-18%200L5%2087c-5-5-5-13%200-18s13-5%2018%200l126%20126%20126-126c5-5%2013-5%2018%200z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 16px 16px;
+      cursor: pointer;
+      width: 250px;
+}
+
+.opt:focus{
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 3px #007bff80;
+    }
+
 .login input[type='submit']{
     background-color: #D08A98	;
     border-radius: 20px;

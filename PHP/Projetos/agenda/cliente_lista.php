@@ -10,7 +10,7 @@ $enviaquery = mysqli_query($link, $sqlcli);
 
 // AQUI FILTRA AS MINHAS ESCOLHAS
 $ativo = 1;
-echo($ativo);
+
 // AGORA FUNÇÕES DE CADA CLICK
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ativo = $_POST['filtro'];

@@ -92,8 +92,21 @@ while($tbl = mysqli_fetch_array($enviaquery)){
                 <label>PREÇO</label>
                 <input type='decimal'name='txtpreco' placeholder='HUE$' value='<?= $precoservico?>'>
                 <br>
-                <label>DURAÇÃO</label>
-                <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='<?= $temposervico?>' required>
+                <label>DURAÇÃO (Em Minutos)</label>
+                <!-- <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='' required> -->
+                <select name='txttempo' class='opt'>
+                    <option value='<?= $temposervico?>'><?= $temposervico?></option>
+                    <option value='0'>SEM TEMPO IRMÃO/IRMÃ</option>
+                    <option value='30'>30 MINUTOS</option>
+                    <option value='60'>1 HORA</option>
+                    <option value='90'>1:30 HORA</option>
+                    <option value='120'>2 HORAS</option>
+                    <option value='180'>2:30 HORAS</option>
+                    <option value='240'>3:00 HORAS</option>
+                    <option value='400'>3:30 HORAS</option>
+                    <option value='460'>4 HORAS</option>
+                </select>
+                
                 <br>
                 <!-- INPUT DE IBAGEM PARA O BANDO DE DADOS -->
                 <label>FAÇA O UPLOAD DA IMAGEM</label>
