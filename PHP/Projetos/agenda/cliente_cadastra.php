@@ -42,8 +42,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         
         echo("<script>window.alert('CLIENTE ALASTRADO COM SUCESSO!');</script>");
-         echo "<script>window.location.href='cliente_lista.php';</script>";
-
     }
 }
 ?>

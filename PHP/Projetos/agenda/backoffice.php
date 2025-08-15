@@ -38,7 +38,12 @@ else{
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
             <h1>BEM VINDO <?php echo strtoupper($nomeusuario)?> </h1>
-
+            
+            <!-- ACESSAR CATALOGO -->
+            <div class="logout" method='post'>
+                <a href='areacliente/catalogo.php'><img src='icons/shopping2.png'width=50 height=50></a>
+            </div>
+            
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
                 <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
@@ -47,15 +52,17 @@ else{
 
             <div class='menus'>
                 <!-- OS CARDS DE MENU -->
-                <!-- <div class="menu1">
-                    <a href="usuario_cadastra.php"><img src ='icons/add9.png' width="200" height="200"></a>
-                </div> -->
+                
 
                 <div class="menu2">
-                    <a href="usuario_lista.php"><img src ='icons/th2.png' width="200" height="200"></a>
-                    <label>Listar Usuários</label>
+                    <a href="servico_cadastra.php"><img src ='icons/th2.png' width="200" height="200"></a>
+                    <label>Cadastrar Serviços</label>
                 </div>
+                <div class="menu1">
+                    <a href="servico_lista.php"><img src ='icons/add9.png' width="200" height="200"></a>
+                    <label>Lista Serviços</label>
 
+                </div>
                 <div class="menu3">
                     <a href="funcionario_cadastra.php"><img src ='icons/business.png' width="200" height="200"></a>
                     <label>Cadastrar Funcionários/Usuários</label>

@@ -88,13 +88,13 @@ $enviaquery = mysqli_query($link, $sql);
                 <input type='text' name='txtnome' value = "<?= $nomefun ?>" required>
                 <br>
                 <label>CPF</label>
-                <input type='text' name='txtcpf' value="<?= $cpffun ?>" disabled maxlength='14' required>
+                <input type='number' name='txtcpf' value="<?= $cpffun ?>" disabled required>
                 <br>
                 <label>FUNÇÃO</label>
                 <input type='text' name='txtfuncao' value="<?= $funcaofun ?>" required>
                 <br>
                 <label>CONTATO</label>
-                <input type='text' name='txtcontato' value="<?= $contatofun ?>" maxlength='15' required>
+                <input type='number' name='txtcontato' value="<?= $contatofun ?>" required>
                 
                 <!-- ESSE RADIO VERIFICA FUNCIONARIO -->
                 <div class='rbativo'>

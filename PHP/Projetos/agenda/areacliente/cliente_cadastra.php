@@ -1,7 +1,8 @@
 <?php
 
 // CONEXÃO COM O BANCO DE DADOS
-include("utils/conectadb.php");
+include("../utils/conectadb.php");
+
 
 //APÓS O VAMOS CADASTRAR O FUN E O USU AO MESMO TEMPO
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -39,9 +40,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $enviaquery = mysqli_query($link, $sql);
 
         
-        echo("<script>window.alert('CLIENTE CADASTRADO COM SUCESSO!');</script>");
-        echo "<script>window.location.href='cliente_lista.php';</script>";
-
+        echo("<script>window.alert('CLIENTE ALASTRADO COM SUCESSO!');</script>");
+        echo("<script>window.location.href='logincliente.php';</script>");
     }
 }
 ?>
@@ -54,6 +54,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <link rel="stylesheet" href="../css/formulario.css">
     <link rel="stylesheet" href="../css/global.css">
     <link href="https://fonts.cdnfonts.com/css/master-lemon" rel="stylesheet">
+    
     <title>CADASTRO DE CLIENTE</title>
 </head>
 <body>
@@ -62,7 +63,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <div class="formulario">
 <!-- FIRULAS Y FIRULAS -->
  
-            <a href="index.php"><img src='../icons/arrow47.png' width=50 height=50></a>
+            <a href="logincliente.php"><img src='../icons/arrow47.png' width=50 height=50></a>
             
             <form class='login' action="cliente_cadastra.php" method="post">
             
@@ -83,6 +84,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <label>DIGITE UMA SENHA</label>
                 <input type='password' name='txtsenha' placeholder='Senha aqui'>
                 <br>
+          
                 <br>
                 <input type='submit' value='CADASTRAR'>
             </form>
@@ -91,6 +93,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         </div>
     </div>
-    <script src='./scripts/script.js'></script>
+    <script src='../scripts/script.js'></script>
 </body>
 </html>

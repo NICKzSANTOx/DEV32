@@ -10,13 +10,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $login = $_POST['txtlogin'];
     $senha = $_POST['txtsenha'];
 
-    // COLETA DE NOME DO FUNCIONÁRIO
-    $sqlfun = "SELECT FK_FUN_ID from usuarios 
-    WHERE usu_login = '$login' AND usu_senha = '$senha'";
-
-    $enviaquery2 = mysqli_query($link, $sqlfun);
-    $idfuncionario = mysqli_fetch_array($enviaquery2) [0];
-
     // TODO PARA AMANHÃ
     // SANITIZAR O ERRO FLICK NO ERRO DE USU E SENHA (SUPONHO VARIAVEL VAZIA DE ID)
 
@@ -32,6 +25,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     // RETORNO DO QUE VEM DO BANCO
     $retorno = mysqli_fetch_array($enviaquery) [0];
 
+
+    // COLETA DE NOME DO FUNCIONÁRIO
+    $sqlfun = "SELECT FK_FUN_ID from usuarios 
+    WHERE usu_login = '$login' AND usu_senha = '$senha'";
+
+    $enviaquery2 = mysqli_query($link, $sqlfun);
+    $idfuncionario = mysqli_fetch_array($enviaquery2) [0];
+
     // VALIDAÇÃO DO RETORNO
     if($retorno == 1){
         $_SESSION['idfuncionario'] = $idfuncionario;
@@ -39,7 +40,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         Header("Location: backoffice.php");
     }
     else{
-        echo("<script>window.alert('LOGIN OU SENHA INCORRETOS');</script>");
+        echo("<script>windowrt('LOGIN OU SENHA INCORRETOS');</script>");
         echo("<script>window.location.href='login.php';</script>");
     }
 
