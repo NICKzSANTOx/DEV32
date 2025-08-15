@@ -11,9 +11,16 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM catalogo WHERE CAT_ID = '$id'";
 $enviaquery = mysqli_query($link, $sql);
 
-$dataAtual = date('Y-m-d'); // Gera a data de hoje no formato correto
-$horaAtual = date('H:i'); // Hora atual no formato 24h
 
+// COLETANDO OS NOMES DOS FUNS
+$sqlfun = 'SELECT * FROM funcionarios ORDER BY FUN_NOME';
+$enviaquery2 = mysqli_query($link, $sqlfun);
+
+
+// GERANDO A DATA NO FORMADO CORRETO
+$dataAtual = date('Y-m-d'); 
+// HORA ATUAL NO FORMATO 24HS
+$horaAtual = date('H:i');
 
 while($tbl = mysqli_fetch_array($enviaquery)){
     $id = $tbl[0];
@@ -23,6 +30,12 @@ while($tbl = mysqli_fetch_array($enviaquery)){
     $temposervico = $tbl[4];
     $ativo = $tbl[5];
     $imagem_atual = $tbl[6];
+}
+
+
+// COLETANDO O NOME DO FUNCIONÁRIO
+if($_SERVER['REQUEST_METHOD']== 'POST'){
+   
 }
 
 ?>
@@ -76,33 +89,49 @@ while($tbl = mysqli_fetch_array($enviaquery)){
                 <!-- SELECT PARA VER DATA DISPONÍVEL PARA CABELEIREIRO  -->
                 <!-- SELECT PARA VER QUAL CABELEIREIRO DISPONÍVEL NESSA DATA -->
                 <!-- SELECT OPTION LISTA DE OPÇÕES -->
+
+                <label><b>AGENDAR DATA</b></label>
                 <input type="date" id="data" name="data" min="<?= $dataAtual ?>">
                 <br>
                  <select class='opt' name="horario" id="horario" required>
                     <?php
-                    $inicio = strtotime("08:00");
-                    $fim = strtotime("21:00");
-
-                    
+                    // CONVERTER PARA PODER SOMAR E LISTAR DE MEIA E MEIA
+                    $inicio = strtotime("08:00:00");
+                    $fim = strtotime("21:00:00");
 
                     for ($hora = $inicio; $hora <= $fim; $hora += 30 * 60) {
                         $horario = date("H:i", $hora);
-                     
                         // VAMOS USAR ISSO NO VALIDAÇÃO DO AGENDAMENTO
-                        // if($horario > $horaAtual){
-                        //     echo "<option value=\"$horario\">$horario</option>";
-
-                        // }
-                        // else{
-                        //     echo "<option value=\"$horario\" disabled>$horario</option>";
-
-                        // }
+                        if($horario > $horaAtual){
+                            echo "<option value='$horario'>$horario</option>";
+                        }
+                        else{
+                            echo "<option value='$horario'>$horario</option>";
+                        }
                     }
                     ?>
                 </select>
                 <br>
+                
+                <!-- AGENDAR COM QUEM  -->
+                <label><b>AGENDAR COM QUEM?</b></label>
+                <form action='../utils/verificafuncionariocat.php' method="post" onchange="this.form.submit()">
+                    <select name='idfuncionario' class="opt">
+                        <option value="0">SELECIONE O CABELEIREIRO</option>
+                        <?php 
+                            while($retorno = mysqli_fetch_array($enviaquery2)){
+                                 $idfuncionario = $retorno[0];
+                                 $nomefun = $retorno[1];
+                        ?>
+                                <option value="<?= $idfuncionario?>"><?= $nomefun?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </form>
+                <br>
 
-                <input type='submit' value='AGENDAR'>
+                <input type='submit' value='VERIFICAR AGENDA'>
             </form>
             <br>
         </div>
