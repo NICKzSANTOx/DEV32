@@ -3,15 +3,10 @@ include("../utils/conectadb.php");
 // FAZER O INCLUDE DO VALIDACLIENTE
 include("../utils/validacliente.php");
 
-
-
-
-
 $sql = "SELECT * FROM catalogo WHERE CAT_ATIVO = 1";
 $enviaquery = mysqli_query($link, $sql);
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">

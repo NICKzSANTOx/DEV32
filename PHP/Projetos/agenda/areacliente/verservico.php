@@ -3,7 +3,7 @@
 include("../utils/conectadb.php");
 include("../utils/validacliente.php");
 
-
+// COLETANDO O SERVIÇO SELECIONADO DO CATALOGO
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM catalogo WHERE CAT_ID = '$id'";
@@ -18,6 +18,15 @@ while($tbl = mysqli_fetch_array($enviaquery)){
     $ativo = $tbl[5];
     $imagem_atual = $tbl[6];
 }
+
+// COLETA CABELEIREIRO
+$sqlfuncionario = "SELECT FUN_NOME FROM funcionarios 
+    WHERE FUN_NOME != 'Administrador'";
+$enviaqueryfun = mysqli_query($link, $sqlfuncionario);
+
+
+// VERIFICA AGENDA
+
 
 ?>
 
@@ -66,9 +75,20 @@ while($tbl = mysqli_fetch_array($enviaquery)){
                 <label><?= $temposervico <= 59? $temposervico." Minutos": ($temposervico / 60)." Hora(s)"?> </label> <!--COLETA TEMPO DO CAT [4]-->
                 <br>
 
-                <!-- TODO TELA DE VERSERVIÇO PARA AGENDAMENTO -->
-                <!-- SELECT PARA VER DATA DISPONÍVEL PARA CABELEIREIRO  -->
-                <!-- SELECT PARA VER QUAL CABELEIREIRO DISPONÍVEL NESSA DATA -->
+                <!-- SELECIONA O CABELEIREIRO -->
+                 <select class='opt' name='funcionario' >
+                    <!-- LISTANDO FUNCIONARIOS PORTAL-->
+                    <option value='sem funcionario'>SELECIONE UM CABELEIREIRO</option>
+                    
+                    <?php while($funcionario = mysqli_fetch_array($enviaqueryfun)){ ?>
+                    
+                        <option value='<?= $funcionario[0]?>'>
+                            <?= $funcionario[0]?>
+                        </option>
+                    
+                    <?php } ?> 
+                 </select>
+            
                 
                 <input type='submit' value='AGENDAR'>
             </form>
