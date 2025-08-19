@@ -2,6 +2,7 @@
 
 include("../utils/conectadb.php");
 include("../utils/validacliente.php");
+include("../utils/verificaagenda.php");
 
 // COLETANDO O SERVIÇO SELECIONADO DO CATALOGO
 $id = $_GET['id'];
@@ -20,10 +21,9 @@ while($tbl = mysqli_fetch_array($enviaquery)){
 }
 
 // COLETA CABELEIREIRO
-$sqlfuncionario = "SELECT FUN_NOME FROM funcionarios 
+$sqlfuncionario = "SELECT FUN_ID, FUN_NOME FROM funcionarios 
     WHERE FUN_NOME != 'Administrador'";
 $enviaqueryfun = mysqli_query($link, $sqlfuncionario);
-
 
 // VERIFICA AGENDA
 
@@ -74,24 +74,64 @@ $enviaqueryfun = mysqli_query($link, $sqlfuncionario);
                 <!-- <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='' required> -->
                 <label><?= $temposervico <= 59? $temposervico." Minutos": ($temposervico / 60)." Hora(s)"?> </label> <!--COLETA TEMPO DO CAT [4]-->
                 <br>
-
-                <!-- SELECIONA O CABELEIREIRO -->
-                 <select class='opt' name='funcionario' >
-                    <!-- LISTANDO FUNCIONARIOS PORTAL-->
-                    <option value='sem funcionario'>SELECIONE UM CABELEIREIRO</option>
-                    
-                    <?php while($funcionario = mysqli_fetch_array($enviaqueryfun)){ ?>
-                    
-                        <option value='<?= $funcionario[0]?>'>
-                            <?= $funcionario[0]?>
-                        </option>
-                    
-                    <?php } ?> 
-                 </select>
-            
-                
-                <input type='submit' value='AGENDAR'>
+                <input type='submit' value='AGENDAR'>    
             </form>
+                <!-- SELECIONA O CABELEIREIRO -->
+                <!-- CRIAR UM FORM DE VERIFICA HORARIO -->
+                <form class='login' action='../utils/verificaagenda.php' method="post" onchange="this.form.submit()">
+                    <select class='opt' name='idfuncionario' >
+                        <option value='sem funcionario'>SELECIONE UM CABELEIREIRO</option>
+                        
+                        <!-- PREENCHENDO LISTA -->
+                        <?php while($funcionario = mysqli_fetch_array($enviaqueryfun)){ ?>
+                            <option value='<?= $funcionario[0]?>'>
+                                <?= $funcionario[1]?>
+                            </option>
+                        <?php } ?> 
+                    </select>
+                    
+                    <br>
+                    <!-- COLETA DATA -->
+                    <input type='date' name='data'>
+                    
+                    <br>
+                    <!-- COLETA HORA -->
+                    <!-- SELECT OPTION LISTA DE OPÇÕES  -->
+                    <!-- RESPEITA O FORMATO DE HORA 00:00:00 -->
+                    <select class='opt' name="horario">
+                        <option value="08:00:00">08:00</option>
+                        <option value="08:30:00">08:30</option>
+                        <option value="09:00:00">09:00</option>
+                        <option value="09:30:00">09:30</option>
+                        <option value="10:00:00">10:00</option>
+                        <option value="10:30:00">10:30</option>
+                        <option value="11:00:00">11:00</option>
+                        <option value="11:30:00">11:30</option>
+                        <option value="12:00:00">12:00</option>
+                        <option value="12:30:00">12:30</option>
+                        <option value="13:00:00">13:00</option>
+                        <option value="13:30:00">13:30</option>
+                        <option value="14:00:00">14:00</option>
+                        <option value="14:30:00">14:30</option>
+                        <option value="15:00:00">15:00</option>
+                        <option value="15:30:00">15:30</option>
+                        <option value="16:00:00">16:00</option>
+                        <option value="16:30:00">16:30</option>
+                        <option value="17:00:00">17:00</option>
+                        <option value="17:30:00">17:30</option>
+                        <option value="18:00:00">18:00</option>
+                        <option value="18:30:00">18:30</option>
+                        <option value="19:00:00">19:00</option>
+                        <option value="19:30:00">19:30</option>
+                        <option value="20:00:00">20:00</option>
+                        <option value="20:30:00">20:30</option>
+                        <option value="21:00:00">21:00</option>
+                    </select>
+                            <input type='submit' value='VERIFICAR '>
+                </form>
+                
+                <br>
+           
             <br>
         </div>
         
