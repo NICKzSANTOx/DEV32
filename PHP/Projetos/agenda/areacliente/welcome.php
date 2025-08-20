@@ -5,7 +5,6 @@ session_start();
 $idcliente = $_SESSION['idcliente'];
 $nomecliente = $_SESSION['nomecliente'];
 
-
 ?>
 
 <!DOCTYPE html>

@@ -2,6 +2,7 @@
 
 include("../utils/conectadb.php");
 include("../utils/validacliente.php");
+include("../utils/verificahorario.php");
 
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -84,38 +85,18 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                 <!-- <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='' required> -->
                 <label><?= $temposervico <= 59? $temposervico." Minutos": ($temposervico / 60)." Hora(s)"?> </label> <!--COLETA TEMPO DO CAT [4]-->
                 <br>
-
+            </form>
                 <!-- TODO TELA DE VERSERVIÇO PARA AGENDAMENTO -->
                 <!-- SELECT PARA VER DATA DISPONÍVEL PARA CABELEIREIRO  -->
                 <!-- SELECT PARA VER QUAL CABELEIREIRO DISPONÍVEL NESSA DATA -->
                 <!-- SELECT OPTION LISTA DE OPÇÕES -->
 
-                <label><b>AGENDAR DATA</b></label>
-                <input type="date" id="data" name="data" min="<?= $dataAtual ?>">
-                <br>
-                 <select class='opt' name="horario" id="horario" required>
-                    <?php
-                    // CONVERTER PARA PODER SOMAR E LISTAR DE MEIA E MEIA
-                    $inicio = strtotime("08:00:00");
-                    $fim = strtotime("21:00:00");
-
-                    for ($hora = $inicio; $hora <= $fim; $hora += 30 * 60) {
-                        $horario = date("H:i", $hora);
-                        // VAMOS USAR ISSO NO VALIDAÇÃO DO AGENDAMENTO
-                        if($horario > $horaAtual){
-                            echo "<option value='$horario'>$horario</option>";
-                        }
-                        else{
-                            echo "<option value='$horario'>$horario</option>";
-                        }
-                    }
-                    ?>
-                </select>
+                
                 <br>
                 
                 <!-- AGENDAR COM QUEM  -->
                 <label><b>AGENDAR COM QUEM?</b></label>
-                <form action='../utils/verificafuncionariocat.php' method="post" onchange="this.form.submit()">
+                <form action='../utils/verificahorario.php' method="post" onchange="this.form.submit()">
                     <select name='idfuncionario' class="opt">
                         <option value="0">SELECIONE O CABELEIREIRO</option>
                         <?php 
@@ -124,15 +105,42 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                                  $nomefun = $retorno[1];
                         ?>
                                 <option value="<?= $idfuncionario?>"><?= $nomefun?></option>
+                                
                         <?php
+                        
                             }
                         ?>
                     </select>
-                </form>
-                <br>
+                        <br>
 
-                <input type='submit' value='VERIFICAR AGENDA'>
-            </form>
+                        <label><b>AGENDAR DATA</b></label>
+                        <br>
+                        <input type="date" id="data" name="data">
+
+                        <select class='opt' name="horario" id="horario" required>
+                               <option value="0">SELECIONE O CABELEIREIRO</option>
+                               <?php
+                                    $inicio = strtotime("08:00:00");
+                                    $fim    = strtotime("21:00:00");
+                                  
+                                    for ($hora = $inicio; $hora <= $fim; $hora += 30*60) {
+                                        $valor = date("H:i:s", $hora);
+                                        $label = date("H:i", $hora);
+                                        
+
+                                        echo ($valor == $horainicio)
+                                            ? "<option value='$valor' disabled>$label</option>"
+                                            : "<option value='$valor'>$label</option>";
+                                    }
+                                ?>
+
+                        </select>
+                        
+                        <input type='submit' value='VERIFICAR AGENDA'>
+
+                        <br>
+
+                </form>
             <br>
         </div>
         
