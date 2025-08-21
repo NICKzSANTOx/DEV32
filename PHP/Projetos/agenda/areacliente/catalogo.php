@@ -43,7 +43,12 @@ $enviaquery = mysqli_query($link, $sql);
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
             <h1>BEM VINDO <?php echo strtoupper($nomecliente)?> </h1>
-
+            
+            <div class='login'>
+                <a href='verperfil.php'>
+                    <img src='../icons/user2.png'width=50 height=50>
+                </a>
+            </div>
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
                 <a href='../logoutcliente.php'><img src='../icons/backspace.png'width=50 height=50></a>

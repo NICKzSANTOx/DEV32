@@ -1,9 +1,9 @@
 <?php
-
+// include("../utils/conectadb.php");
 
 include("conectadb.php");
-
 session_start();
+
 // MECANISMO DE SEGURANÇA ANTI VARIAVEL DE SESSÃO VAZIA
 if(isset($_SESSION['idcliente'])){
     // PREENCHE IDFUNCIONARIO COM VARIAVEL DE SESSÃO
@@ -16,6 +16,11 @@ if(isset($_SESSION['idcliente'])){
     $nomecliente = mysqli_fetch_array($enviaquery) [0];
 
 }
+else{
 
+    echo"<script>window.alert('NÃO LOGADO MEU BOM');</script>";
+    echo"<script>window.location.href='catalogo.php';</script>";
+
+}
 
 ?>
