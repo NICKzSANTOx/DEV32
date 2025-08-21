@@ -2,7 +2,13 @@
 
 include("../utils/conectadb.php");
 include("../utils/validacliente.php");
+<<<<<<< Updated upstream
 include("../utils/verificaagenda.php");
+=======
+
+date_default_timezone_set('America/Sao_Paulo');
+
+>>>>>>> Stashed changes
 
 // COLETANDO O SERVIÇO SELECIONADO DO CATALOGO
 $id = $_GET['id'];
@@ -74,6 +80,7 @@ $enviaqueryfun = mysqli_query($link, $sqlfuncionario);
                 <!-- <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' value='' required> -->
                 <label><?= $temposervico <= 59? $temposervico." Minutos": ($temposervico / 60)." Hora(s)"?> </label> <!--COLETA TEMPO DO CAT [4]-->
                 <br>
+<<<<<<< Updated upstream
                 <input type='submit' value='AGENDAR'>    
             </form>
                 <!-- SELECIONA O CABELEIREIRO -->
@@ -132,6 +139,57 @@ $enviaqueryfun = mysqli_query($link, $sqlfuncionario);
                 
                 <br>
            
+=======
+
+                <!-- TODO TELA DE VERSERVIÇO PARA AGENDAMENTO -->
+                <!-- SELECT PARA VER DATA DISPONÍVEL PARA CABELEIREIRO  -->
+                <!-- SELECT PARA VER QUAL CABELEIREIRO DISPONÍVEL NESSA DATA -->
+                <!-- SELECT OPTION LISTA DE OPÇÕES -->
+
+                <label><b>AGENDAR DATA</b></label>
+                <input type="date" id="data" name="data" min="<?= $dataAtual ?>">
+                <br>
+                 <select class='opt' name="horario" id="horario" required>
+                    <?php
+                    // CONVERTER PARA PODER SOMAR E LISTAR DE MEIA E MEIA
+                    $inicio = strtotime("08:00:00");
+                    $fim = strtotime("21:00:00");
+
+                    for ($hora = $inicio; $hora <= $fim; $hora += 30 * 60) {
+                        $horario = date("H:i", $hora);
+                        // VAMOS USAR ISSO NO VALIDAÇÃO DO AGENDAMENTO
+                        if($horario > $horaAtual){
+                            echo "<option value='$horario'>$horario</option>";
+                        }
+                        else{
+                            echo "<option value='$horario'>$horario</option>";
+                        }
+                    }
+                    ?>
+                </select>
+                <br>
+                
+                <!-- AGENDAR COM QUEM  -->
+                <label><b>AGENDAR COM QUEM?</b></label>
+                <form action='../utils/verificafuncionariocat.php' method="post" onchange="this.form.submit()">
+                    <select name='idfuncionario' class="opt">
+                        <option value="0">SELECIONE O CABELEIREIRO</option>
+                        <?php 
+                            while($retorno = mysqli_fetch_array($enviaquery2)){
+                                 $idfuncionario = $retorno[0];
+                                 $nomefun = $retorno[1];
+                        ?>
+                                <option value="<?= $idfuncionario?>"><?= $nomefun?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </form>
+                <br>
+
+                <input type='submit' value='VERIFICAR AGENDA'>
+            </form>
+>>>>>>> Stashed changes
             <br>
         </div>
         
